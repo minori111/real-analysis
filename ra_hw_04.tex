@@ -1,0 +1,202 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathabx}
+\usepackage{mathrsfs}
+\usepackage[margin=2cm]{geometry}
+%\usepackage{thmbox}
+\usepackage{graphicx}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{url}
+\usepackage{comment}
+%\usepackage{esint} %重積分
+%\usepackage{enumerate}
+%\usepackage{titlesec}
+%\usepackage{Rvector}
+%\usepackage{mathabx}
+\newcommand{\qrq}{\quad\Rightarrow\quad}
+\newcommand{\qarq}{\quad&\Rightarrow\quad}
+\newcommand{\alp}{\alpha}
+\newcommand{\claim}{{\underline{\it Claim:}}~~}
+\newcommand{\dbR}{\mathbb{R}}
+\newcommand{\ndimr}{\mathbb{R}^n}
+\newcommand{\vare}{\varepsilon}
+\newcommand{\since}{\because\;}
+\newcommand{\hence}{\therefore\;}
+\newcommand{\en}{\par\noindent}
+\newcommand{\fn}{\footnotesize}
+
+\newcommand{\sect}[2]{#1~~{\mdseries\tiny(#2)}}
+
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\renewcommand{\[}{\left[}
+\renewcommand{\]}{\right]}
+
+\let \ds=\displaystyle
+
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=5,AutoFakeSlant=.4]{標楷體}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\thesection}{Lecture \arabic{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\usepackage[T1]{fontenc}
+
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\intR}{\int_{\mathbb{R}}}
+\newcommand{\intRn}{\int_{\mathbb{R}^n}}
+\newcommand{\SRn}{\mathscr{S}(\mathbb{R}^n)}
+\newcommand{\EXP}{e^{-{1\over1-\left|x\right|^2}}}
+\newcommand{\OMA}{\left(1-\left|x\right|^2\right)}
+
+%%%% F U N C T I O N %%%%%
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\inn}[1]{\left<#1\right>}
+\newcommand{\f}[1]{f\!\left(#1\right)}
+\newcommand{\g}[1]{g\!\left(#1\right)}
+\newcommand{\h}[1]{h\!\left(#1\right)}
+\newcommand{\x}[1]{x\!\left(#1\right)}
+\newcommand{\D}[1]{D\!\left(#1\right)}
+\newcommand{\N}[1]{N\!\left(#1\right)}
+\renewcommand{\P}[1]{P\!\left(#1\right)}
+\newcommand{\R}[1]{R\!\left(#1\right)}
+\newcommand{\V}[1]{V\!\left(#1\right)}
+\newcommand{\function}[2]{#1\!\left(#2\right)}
+\newcommand{\functions}[2]{\left(#1\right)\!\left(#2\right)}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\textfil}[1]{\colorbox{light-gray}{\large\color{Red} #1}}
+
+
+\renewcommand{\title}{Real Analysis II:\quad Homework 04}
+\renewcommand{\author}{104021615 黃翊軒}
+\renewcommand{\maketitle}{\begin{center}\textbf{\Large\title}\\[6pt] {\author}\\[6pt] {\color{Gray}\footnotesize March 28, 2016}\end{center}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+
+\newcommand{\bfL}{\text{\boldmath $L$}}
+\newcommand{\bfone}{\text{\boldmath $1$}}
+\renewcommand{\D}[3]{\frac{\partial^{#2}{#3}}{\partial{#1}^{#2}}}
+\renewcommand{\d}[3]{\frac{d^{#2}{#3}}{d{#1}^{#2}}}
+\newcommand{\japan}{\left<x\right>}
+
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\newcommand{\Exercise}[2]{\textbf{Exercise #1.} \textit{#2}}
+\newtheorem{exercise}{Exercise}
+
+%\parskip=11pt
+
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+
+\begin{document}
+
+  \maketitle
+
+  %\noindent\textbf{\large CHAPTER 2. ~Tempered distributions}
+
+  \setcounter{exercise}{4}
+  
+  \begin{exercise}
+  	p.143
+  \end{exercise}
+  \begin{proof}
+  	We may assume $N_{p_1}[f]<+\infty$, otherwise the result is trivial by Theorem 8.2.
+  	
+  	Let $q = p_2/p_1 > 1$, then the conjugate exponent of $q$ is $p_2/(p_2-p_1)$. By H\"older's Inequality, we get
+  	\begin{align*}
+  	\|f\|_{p_1}^{p_1}&=\int_E|f|^{p_1} = \int_E|f|^{p_1}\times 1\\
+  	&\le \(\int_E|f|^{p_1q}\)^{1/q}\(\int_E 1^{p_2/(p_2-p_1)}\)^{(p_2-p_1)/p_2}\\
+  	&= \(\int_E|f|^{p_2}\)^{p_1/p_2}|E|^{(p_2-p_1)/p_2}
+    \end{align*}
+    Taking both sides to the power $1/p_1$, then
+    \begin{align*}
+    \|f\|_{p_1}&\le\(\int_E|f|^{p_2}\)^{1/p_2}|E|^{(p_2-p_1)/p_1p_2}\\
+    &=\|f\|_{p_2}|E|^{(p_2-p_1)/p_1p_2}
+    \end{align*}
+    Multipling both sides $1/|E|^{1/p_1}$, we have
+    $$
+    N_{p_1}[f]=\frac{1}{|E|^{1/p_1}}\|f\|_{p_1}\le\frac{1}{|E|^{1/p_2}}\|f\|_{p_2}=N_{p_2}[f]
+    $$
+    \\
+    
+    Next we check other three properties.
+
+    From  Minkowski's Inequilty,
+    \begin{align*}
+    	N_p[f+g] &= \frac{1}{|E|^{1/p}}\|f+g\|_p\\
+    	&\le \frac{1}{|E|^{1/p}}\(\|f|_p+\|g\|_p\)\\
+    	&= \frac{1}{|E|^{1/p}}\|f\|_p+\frac{1}{|E|^{1/p}}\|g\|_p\\
+    	&= N_p[f]+N_p[g]
+    \end{align*}
+    
+    From H\"older's Inequality,
+    \begin{align*}
+    N_1[fg] = \frac{1}{|E|}\int|fg| &\le \frac{1}{|E|^{1/p+1/p'}}\int|f|\int|g|\\
+    &= N_p[f]N_{p'}[g]
+    \end{align*}
+    
+    From Theorem 8.1,
+    \begin{align*}
+    \lim_{p\rightarrow\infty}N_p[f] &= \lim_{p\rightarrow\infty}\frac{1}{|E|^{1/p}}\|f\|_p\\
+    &=\lim_{p\rightarrow\infty}\frac{1}{|E|^{1/p}}\cdot\lim_{p\rightarrow\infty}\|f\|_p\\
+    &=1\cdot\lim_{p\rightarrow\infty}\|f\|_p\\
+    &=\|f\|_\infty
+    \end{align*}
+  \end{proof}
+  
+  \setcounter{exercise}{6}
+  
+  \begin{exercise}
+  	p.143
+  \end{exercise}
+  \begin{proof}
+  	We quickly have 
+  	$$
+  	\|f\|_p=\(\int_{(0,\varepsilon^p)}|1|^p\)^{1/p} = \varepsilon
+  	$$
+  	and similarly $\|g\|_p=\varepsilon$. However,
+  	$$
+  	\|f/2+g/2\|_p = \(\int_{(0,2\varepsilon^p)}|1/2|^p\)^{1/p} = \(2\vare^p2^{-p}\)^{1/p}=2^{\frac{1}{p}-1}\varepsilon>\varepsilon
+  	$$
+  	since $1/p>1$. So the neighborhood $B_{\vare+\eta}(0)$ is not convex for sufficiently small $\eta$.
+  \end{proof}
+  
+  \setcounter{exercise}{8}
+  
+  \begin{exercise}
+  	p.143
+  \end{exercise}
+  \begin{proof}
+  	Suppose $\essinf_Ef = 0$. Then for every $\alpha>0$ we have $|\{x\in E:f(x)<\alp\}|>0$. Thus, for every $0<\beta<+\infty$ we have $|\{x\in E:1/f(x)>\beta\}|>0$, so $\esssup_E 1/f = +\infty$. We may interpret $+\infty^{-1} = 0$, so the proposition still holds.\\
+  	
+  	Now suppose $\essinf_Ef>0$, so there exists $\alp>0$ such that $|\{x\in E:f(x)<\alp\}|>0$. Then
+  	\begin{align*}
+  	\essinf_E f &= \sup\{\alp>0:|\{x\in E:f(x)<\alp\}|>0\}\\
+  	&=\sup\{\alp>0:|\{x\in E:1/f(x)>1/\alp\}|>0\}\\
+  	&=\sup\{1/\beta>0:|\{x\in E:1/f(x)>\beta\}|>0\}\\
+  	&=\(\inf\{\beta>0:|\{x\in E:1/f(x)>\beta\}|>0\}\)^{-1}\\	
+  	&=\(\esssup_E (1/f)\)^{-1}
+  	\end{align*}
+  \end{proof}
+
+  \begin{exercise}
+  	p.143
+  \end{exercise}
+  \begin{proof}
+  	Let $\vare_k = 1/k$, then by Lemma 3.22. We have for every $\vare_k$, there exists a closed set $F_k$ such that $$\vare_{k+1}<|E- F_k|<\vare_k.$$ Note that such $F_k$ is possible by reversely using Lemma 3.22 again if needed. Then we have a sequence of sets of strictly decreasing measure $|E-F_{k+1}|<|E-F_k|$. 
+  	
+  	The difference of any two of these sets must then have positive measure. Let $A$ be the set of all possible differences of sets $|E-F_k|$. The set of all possible unions of sets in $A$ is the power set of $A$, $P(A)$. Note that the power set is uncountable. Taking the characteristic function of any two distinct sets in $P(A)$ gives $$\|\chi_{B_1}-\chi_{B_2}\|_\infty = 1,$$ because $B_1$ and $B_2$ must differ by a set of positive measure. 
+  	
+  	Since there are an uncountable number of such functions and their norms are all different by 1, they can be contained in disjoint open balls of radius $1/3$ in the space $L^\infty(E)$. Then the space $L^\infty(E)$ cannot be separable, because no countable set can intersect this uncountable family of disjoint balls.
+  \end{proof}
+
+\end{document} 

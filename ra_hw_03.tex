@@ -1,0 +1,194 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathabx}
+\usepackage{mathrsfs}
+\usepackage[margin=2cm]{geometry}
+%\usepackage{thmbox}
+\usepackage{graphicx}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{url}
+\usepackage{comment}
+%\usepackage{esint} %重積分
+%\usepackage{enumerate}
+%\usepackage{titlesec}
+%\usepackage{Rvector}
+%\usepackage{mathabx}
+\newcommand{\qrq}{\quad\Rightarrow\quad}
+\newcommand{\qarq}{\quad&\Rightarrow\quad}
+\newcommand{\alp}{\alpha}
+\newcommand{\claim}{{\underline{\it Claim:}}~~}
+\newcommand{\dbR}{\mathbb{R}}
+\newcommand{\ndimr}{\mathbb{R}^n}
+\newcommand{\vare}{\varepsilon}
+\newcommand{\since}{\because\;}
+\newcommand{\hence}{\therefore\;}
+\newcommand{\en}{\par\noindent}
+\newcommand{\fn}{\footnotesize}
+
+\newcommand{\sect}[2]{#1~~{\mdseries\tiny(#2)}}
+
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\renewcommand{\[}{\left[}
+\renewcommand{\]}{\right]}
+
+\let \ds=\displaystyle
+
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=5,AutoFakeSlant=.4]{標楷體}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\thesection}{Lecture \arabic{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\usepackage[T1]{fontenc}
+
+\newcommand{\intR}{\int_{\mathbb{R}}}
+\newcommand{\intRn}{\int_{\mathbb{R}^n}}
+
+%%%% F U N C T I O N %%%%%
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\inn}[1]{\left<#1\right>}
+\newcommand{\f}[1]{f\!\left(#1\right)}
+\newcommand{\g}[1]{g\!\left(#1\right)}
+\newcommand{\h}[1]{h\!\left(#1\right)}
+\newcommand{\x}[1]{x\!\left(#1\right)}
+\newcommand{\D}[1]{D\!\left(#1\right)}
+\newcommand{\N}[1]{N\!\left(#1\right)}
+\renewcommand{\P}[1]{P\!\left(#1\right)}
+\newcommand{\R}[1]{R\!\left(#1\right)}
+\newcommand{\V}[1]{V\!\left(#1\right)}
+\newcommand{\function}[2]{#1\!\left(#2\right)}
+\newcommand{\functions}[2]{\left(#1\right)\!\left(#2\right)}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\textfil}[1]{\colorbox{light-gray}{\large\color{Red} #1}}
+
+
+\renewcommand{\title}{Real Analysis II:\quad Homework 03}
+\renewcommand{\author}{104021615 黃翊軒}
+\renewcommand{\maketitle}{\begin{center}\textbf{\Large\title}\\[6pt] {\author}\\[6pt] {\color{Gray}\footnotesize March 14, 2016}\end{center}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+
+\newcommand{\bfL}{\text{\boldmath $L$}}
+\newcommand{\bfone}{\text{\boldmath $1$}}
+\renewcommand{\D}[3]{\frac{\partial^{#2}{#3}}{\partial{#1}^{#2}}}
+\renewcommand{\d}[3]{\frac{d^{#2}{#3}}{d{#1}^{#2}}}
+
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\newcommand{\Exercise}[2]{\textbf{Exercise #1.} \textit{#2}}
+\newtheorem{exercise}{Exercise}
+
+%\parskip=11pt
+
+\begin{document}
+
+  \maketitle
+  
+%  \noindent\textbf{\large PART I. ~Fourier transformation on $\bfL^\bfone$}
+  
+  \setcounter{exercise}{15}
+  
+  \begin{exercise}
+  	p.86
+  \end{exercise}
+  \begin{proof}
+  	Given $f \ge 0$ and $|E|$ is not necessarily finite, we consider similar process to (5.46) to show if $\varphi(x)=|x|^p$, then $\int_{E_{ab}}\varphi(f)=-\int_{a}^{b}\varphi(\alpha)d\omega(\alp)$. But we will use the \textbf{monotone convergence theorem} here instead of the \textbf{bounded convergence theorem} since $|E|$ could be $+\infty$.
+  	 	
+  	Select a sequence of simple function $\{f_k\}$ like (4.13) on $E_{ab}$ such that $f_k \nearrow f|_{E_{ab}}$. Since $\varphi$ is continuous and nongative, it follows that $\varphi(f_k)\nearrow \varphi(f)$. So by the \textbf{monotone convergence theorem} we have 
+  	$$\int_{E_{ab}}\varphi(f_k) \nearrow \int_{E_{ab}}\varphi(f)
+  	$$
+  	Moreover, since $\varphi(f_k)$ is a simple function on $[a,b]$, we have 
+  	$$\sum_{j}\varphi(\alp_{j-1}^{(k)})[\omega(\alp_j^{(k)})-\omega(\alp_{j-1}^{(k)})]\le \int_{E_{ab}}\varphi(f_k)\le \sum_{j}\varphi(\alp_{j}^{(k)})[\omega(\alp_j^{(k)})-\omega(\alp_{j-1}^{(k)})]
+  	$$
+  	Since the norm of the partitions approach $0$ as $k\rightarrow \infty$, we have $\int_{E_{ab}}\varphi(f)=-\int_{a}^{b}\varphi(\alpha)d\omega(\alp)$ and the case that $\int_{E_{ab}}\varphi(f_k) \nearrow +\infty$ implies $-\int_{a}^{b}\varphi(\alpha)d\omega(\alp)=+\infty$ is trival. Let $a \rightarrow 0^+$, $b \rightarrow +\infty$ the \textbf{monotone convergence theorem} show that 
+  	$$
+  	\int_E \varphi(f)=-\int_{0}^{\infty}\varphi(\alp)d\omega(\alp)
+  	$$
+  	note that the equality hold without regard to the finiteness of either side.
+  	
+  	Suppose that $-\int_{0}^{\infty}\varphi(\alp)d\omega(\alp)$ and hence $\int_E \varphi(f)$ is finite. Then $f\in L^p(E)$, so Exercise 14 and (5.50) state that $\lim_{a\rightarrow 0^+}a^p\omega(a)$ and $\lim_{b\rightarrow +\infty}b^p\omega(b)=0$, so integrating by parts gives us 
+  	$$
+  	\int_{a}^{b}\alp^pd\omega(\alp)=\alp^p\omega(\alp)\bigg\vert_a^b -p\int_{a}^{b}\alp^{p-1}\omega(\alp)d\alp\rightarrow -p\int_{0}^{\infty}\alp^{p-1}\omega(\alp)d\alp
+  	$$
+  	
+  	Conversely, suppose that $-p\int_{0}^{\infty}\alp^{p-1}\omega(\alp)d\alp$ is finite. Then Exercise 15 states that $\lim_{a\rightarrow 0^+}a^p\omega(a)$ and $\lim_{b\rightarrow +\infty}b^p\omega(b)=0$. By integrating by parts, it follows
+  	$$
+  	\alp^p\omega(\alp)\bigg\vert_a^b -p\int_{a}^{b}\alp^{p-1}\omega(\alp)d\alp = \int_{a}^{b}\alp^pd\omega(\alp)
+  	$$
+  	Letting $a \rightarrow 0^+$, $b \rightarrow +\infty$,
+  	$$
+  	-p\int_{0}^{\infty}\alp^{p-1}\omega(\alp)d\alp = \int_{0}^{\infty}\alp^pd\omega(\alp) = \int_E\varphi(f)
+  	$$
+  	
+  	It therefore follows that one integral is finite if and only if the other is finite, and if they are finite, then they are equal (so if they are not finite, they are also both equal to $+\infty$, as $f$ is nonnegative.
+  \end{proof}
+  
+  \setcounter{exercise}{0}
+  \begin{exercise}
+  	p.146
+  \end{exercise}
+  \begin{proof}
+  	If $\int_Ef$ is finite, then both $\int_Ef_1$ and $\int_Ef_2$ are finite, so $\int_E|f_1|$ and $\int_E|f_2|$ are finite. Thus
+  	$$
+  	\int_E|f| = \int_E |f_1+if_2| \le \int_E|f_1| + \int_E|f_2| < +\infty
+  	$$
+  	
+  	Conversely, if $\int_E|f|$ is finite, then so are $\int_E|f_1|$ and $\int_E|f_2|$ since $|f_1|,|f_2|\le |f|$. Thus, $\int_Ef_1$ and $\int_Ef_2$ are finite, so $\int_Ef = \int_E f_1+if_2$ is also finite.
+  	
+  	Following the hint, chose $\alp$ such that 
+  	$$
+  	\left[ \(\int_Ef_1\)^2+\(\int_Ef_2\)^2\right] ^{1/2} = \cos(\alp)\int_Ef_1 + \sin(\alp)\int_Ef_2
+  	$$
+  	Then
+  	\begin{align*}
+  	\left|\int_Ef\right| &= \left[ \(\int_Ef_1\)^2+\(\int_Ef_2\)^2\right] ^{1/2} 
+  	= \cos(\alp)\int_Ef_1 + \sin(\alp)\int_Ef_2 \\
+  	&= \int_E (f_1\cos(\alp)+f_2\sin(\alp)) 
+  	\le \int_E |f_1\cos(\alp)+f_2\sin(\alp)|\\
+  	&\le \int_E \sqrt{f_1^2+f_2^2} = \int_E|f|
+  	\end{align*}
+  \end{proof}
+  
+  \setcounter{exercise}{3}
+  \begin{exercise}
+  	p.146
+  \end{exercise}
+  \begin{proof}
+  	Observe that H\"older's inequality comes from Young's inequality. With the observation the \textbf{equality} of $ab\le \frac{a^p}{p}+\frac{b^q}{q}$(Young's inequality) hold if and only if $a^{p-1}=b$ and hence if and only if $a^p=b^q$, where $p,q$ are conjugate exponents.
+  	
+  	Inparticular, let $a=\frac{|f|}{\|f\|_p}$ and $b=\frac{|g|}{\|g\|_q}$, then integrating both side of Young's inequality implies the H\"older's inequality. It follows that the equality of H\"older's inequality hold if and only if $a^p = b^q$  and $|f||g|=|fg|$ $a.e.$ if and only if $\frac{|f|^p}{\|f\|_p^p}=\frac{|g|^q}{\|g\|_q^q}$ and $fg$ has constant sign $a.e.$ 
+  	
+  	Hence, the equality of H\"older's inequality hold if and only if $fg$ has constant sign and $|f|^p=c\cdot |g|^q$ $a.e.$, where $c=\frac{\|f\|_p^p}{\|g\|_q^q}$.\\
+  	
+  	Observe that the Minkowski's inequality comes from $|f+g|\le|f|+|g|$ and H\"older's inequality for $|f|,|f+g|^{p-1}$ and $|g|,|f+g|^{p-1}$. 
+  	
+  	By the result of previous discussion, we quickly have $fg$ has constant sign $a.e.$ and $c_1|f|^p = c_2|g|^p = |f+g|^{p}$ $a.e.$ Hence, the equality of Minkowski's inequality hold if and only if $fg\ge 0$ and $|f|^p = c\cdot|g|^p$ $a.e.$, where $c = c_2/c_1$.
+  \end{proof}
+  
+  \setcounter{exercise}{5}
+  \begin{exercise}
+  	p.146
+  \end{exercise}
+  \begin{proof}
+  	We prove this by induction. The $k=2$  case is a consequence of H\"older's inequality: if $1/p_1 + 1/p_2 = 1/r$, then $r/p_1 + r/p_2 = 1$, so 
+  	$$
+  	\|fg\|_r^r = \|f^rg^r\|_1\le \|f^r\|_{p_1/r}\|g^r\|_{p_2/r} = \|f\|_{p_1}^r\|g\|_{p_2}^r.
+  	$$
+  	Now if $1/p_1+\cdots +1/p_k = 1/r$ for $k\ge 2$, we have
+  	$$
+  	\|f_1\cdots f_k\|_r\le \|f_1\cdots f_{k-1}\|_s\|f_k\|_{p_k}\le \|f_1\|_{p_1}\cdots\|p_k\|_{p_k},
+  	$$
+  	where $1/s = 1/r-1/p_k = 1/p_1 +\cdots +1/p_{k-1}$.
+  \end{proof}
+
+
+\end{document} 

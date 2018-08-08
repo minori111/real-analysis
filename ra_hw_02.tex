@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[margin=2cm]{geometry}
+%\usepackage{thmbox}
+\usepackage{graphicx}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{url}
+\usepackage{comment}
+%\usepackage{esint} %重積分
+%\usepackage{enumerate}
+%\usepackage{titlesec}
+%\usepackage{Rvector}
+%\usepackage{mathabx}
+\newcommand{\qrq}{\quad\Rightarrow\quad}
+\newcommand{\qarq}{\quad&\Rightarrow\quad}
+\newcommand{\alp}{\alpha}
+\newcommand{\claim}{{\underline{\it Claim:}}~~}
+\newcommand{\dbR}{\mathbb{R}}
+\newcommand{\ndimr}{\mathbb{R}^n}
+\newcommand{\vare}{\varepsilon}
+\newcommand{\since}{\because\;}
+\newcommand{\hence}{\therefore\;}
+\newcommand{\en}{\par\noindent}
+\newcommand{\fn}{\footnotesize}
+
+\newcommand{\sect}[2]{#1~~{\mdseries\tiny(#2)}}
+
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\renewcommand{\[}{\left[}
+\renewcommand{\]}{\right]}
+
+\let \ds=\displaystyle
+
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=5,AutoFakeSlant=.4]{標楷體}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\thesection}{Lecture \arabic{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\usepackage[T1]{fontenc}
+
+\newcommand{\intR}{\int_{\mathbb{R}}}
+\newcommand{\intRn}{\int_{\mathbb{R}^n}}
+
+%%%% F U N C T I O N %%%%%
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\inn}[1]{\left<#1\right>}
+\newcommand{\f}[1]{f\!\left(#1\right)}
+\newcommand{\g}[1]{g\!\left(#1\right)}
+\newcommand{\h}[1]{h\!\left(#1\right)}
+\newcommand{\x}[1]{x\!\left(#1\right)}
+\newcommand{\D}[1]{D\!\left(#1\right)}
+\newcommand{\N}[1]{N\!\left(#1\right)}
+\renewcommand{\P}[1]{P\!\left(#1\right)}
+\newcommand{\R}[1]{R\!\left(#1\right)}
+\newcommand{\V}[1]{V\!\left(#1\right)}
+\newcommand{\function}[2]{#1\!\left(#2\right)}
+\newcommand{\functions}[2]{\left(#1\right)\!\left(#2\right)}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\textfil}[1]{\colorbox{light-gray}{\large\color{Red} #1}}
+
+
+\renewcommand{\title}{Real Analysis II:\quad Homework 02}
+\renewcommand{\author}{104021615 黃翊軒}
+\renewcommand{\maketitle}{\begin{center}\textbf{\Large\title}\\[6pt] {\author}\\[6pt] {\color{Gray}\footnotesize March 07, 2016}\end{center}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\newcommand{\Exercise}[2]{\textbf{Exercise #1.} \textit{#2}}
+\newtheorem{exercise}{Exercise}
+
+%\parskip=11pt
+
+\begin{document}
+
+  \maketitle
+  
+  
+  \setcounter{exercise}{13}
+  
+  \begin{exercise}
+  	p.86
+  \end{exercise}
+  \begin{proof}
+  	Since $f = f^+ - f^-$, we may assume $f \ge 0$.\\
+  	And by Theorem 3.26(ii), given $\epsilon >0$, there exists a $\delta >0$ such that $$\int_{\{0<\delta\}}f^p<\epsilon$$
+  	Hence, the $L^p$ version of Tchebyshev's
+  	inequality implies 
+  	$$a^p\[\omega(a)-\omega(\delta)\]\le \int_{\{a<f\le \delta\}}f^p<\epsilon \qquad \text{for}\quad 0<a<\delta$$
+  	Now let $a\rightarrow 0+$, we have
+  	$$\lim_{a\rightarrow 0+}a^p\omega(a) - 0 < \epsilon \qquad \text{for all} \quad \epsilon>0$$  	
+  	which is equivalent to
+  	$$\lim_{a\rightarrow 0+}a^p = 0$$
+  \end{proof}
+
+  \begin{exercise}
+  	p.86
+  \end{exercise}
+  \begin{proof}
+  	Since th integral $\int_{0}^{\infty}\alpha^{p-1}\omega(\alp)d\alp$ converges, we know that for all $\epsilon>0$, there exists $a$ such that 
+  	$$\int_{\frac{a}{2}}^{a}\alpha^{p-1}\omega(\alp)d\alp \le \int_{0}^{a}\alpha^{p-1}\omega(\alp)d\alp \le \frac{\epsilon}{2^p}$$
+  	Since $\alp^{p-1}$ is a increasing function and  $\omega(\alp)$ is a decreasing function, we have
+  	$$(\frac{a}{2})^p\omega(a)\le \int_{\frac{a}{2}}^{a}\alpha^{p-1}\omega(\alp)d\alp \le \frac{\epsilon}{2^p}$$
+  	so 
+  	$$a^p\omega(a)<\epsilon$$
+  	Hence, $$\lim_{a \rightarrow 0+}a^p\omega(a)=0$$\\
+  	Similarly, for $b^p\omega(b):$\\
+  	Since th integral $\int_{0}^{\infty}\alpha^{p-1}\omega(\alp)d\alp$ converges, we know that for all $\epsilon>0$, there exists $b$ such that
+  	$$\int_{\frac{b}{2}}^{b}\alpha^{p-1}\omega(\alp)d\alp \le \int_{\frac{b}{2}}^{\infty}\alpha^{p-1}\omega(\alp)d\alp \le \frac{\epsilon}{2^p}$$
+  	Since $\alp^{p-1}$ is a increasing function and  $\omega(\alp)$ is a decreasing function, we have
+  	$$(\frac{b}{2})^p\omega(b)\le \int_{\frac{b}{2}}^{b}\alpha^{p-1}\omega(\alp)d\alp \le \frac{\epsilon}{2^p}$$
+  	so 
+  	$$b^p\omega(b)<\epsilon$$
+  	Hence, $$\lim_{b \rightarrow \infty}b^p\omega(b)=0$$
+  \end{proof}
+
+
+  \setcounter{exercise}{2}
+  \begin{exercise}
+  	p.96
+  \end{exercise}
+  \begin{proof}
+  	Since $f(x)-f(y) \in L(I)$, where $I = [0,1]\times [0,1]$, by Fnbini's Theorem, we have: \\
+  	For almost $y \in [0,1]$, $f(x)-f(y)$ is integrable on $E_y$ with respect to $x$.
+  	
+  	Inparticular, since $f(y)$ is finite a.e. on $[0,1]$, we may take an $y$ such that $f(y)=a$ is finite. This implies $f(x)-a$ is integrable on $[0,1]$, which is equivalent to $f(x)$ is integrable on $[0,1]$.
+  \end{proof}
+  
+  \begin{exercise}
+  	p.96
+  \end{exercise}
+  \begin{proof}
+  	Using the hint, set $a=x$, $b=-x$,  integrate with respect to $x$, and make the change of variables $\xi=x+t, \eta=-x+t$.\\
+  	By assumption, we have
+  	$$\int_{0}^{1}\int_{0}^{1}\left| f(x+t)-f(-x+t)\right| dtdx \le c$$
+  	Change the variables to obtain
+  	$$\frac{1}{2}\int_{0}^{2}\int_{-1}^{1}|f(\xi)-f(\eta)|d\xi d\eta \le c$$
+  	Since the periodicity of $f$, the inequality can be rewrited as
+  	$$\int_{0}^{1}\int_{0}^{1}|f(\xi)-f(\eta)|d\xi d\eta \le \frac{c}{2}$$
+  	Thus, $|f(\xi)-f(\eta)|$ and hence $f(\xi)-f(\eta)$ are integrable on $[0,1]\times[0,1]$. By the result of Exercise 6.3, $f$ is integrable over $[0,1]$.
+  	
+  \end{proof}
+
+\end{document} 

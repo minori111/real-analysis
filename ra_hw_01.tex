@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[margin=2cm]{geometry}
+%\usepackage{thmbox}
+\usepackage{graphicx}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{url}
+\usepackage{comment}
+%\usepackage{enumerate}
+%\usepackage{titlesec}
+%\usepackage{Rvector}
+%\usepackage{mathabx}
+\newcommand{\qrq}{\quad\Rightarrow\quad}
+\newcommand{\qarq}{\quad&\Rightarrow\quad}
+\newcommand{\alp}{\alpha}
+\newcommand{\claim}{{\underline{\it Claim:}}~~}
+\newcommand{\dbR}{\mathbb{R}}
+\newcommand{\ndimr}{\mathbb{R}^n}
+\newcommand{\vare}{\varepsilon}
+\newcommand{\since}{\because\;}
+\newcommand{\hence}{\therefore\;}
+\newcommand{\en}{\par\noindent}
+\newcommand{\fn}{\footnotesize}
+
+\newcommand{\sect}[2]{#1~~{\mdseries\tiny(#2)}}
+
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+
+\let \ds=\displaystyle
+
+\usepackage{xeCJK}
+\setCJKmainfont[AutoFakeBold=5,AutoFakeSlant=.4]{標楷體}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\thesection}{Lecture \arabic{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+
+\usepackage[T1]{fontenc}
+
+%%%% F U N C T I O N %%%%%
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\inn}[1]{\left<#1\right>}
+\newcommand{\f}[1]{f\!\left(#1\right)}
+\newcommand{\g}[1]{g\!\left(#1\right)}
+\newcommand{\h}[1]{h\!\left(#1\right)}
+\newcommand{\x}[1]{x\!\left(#1\right)}
+\newcommand{\D}[1]{D\!\left(#1\right)}
+\newcommand{\N}[1]{N\!\left(#1\right)}
+\renewcommand{\P}[1]{P\!\left(#1\right)}
+\newcommand{\R}[1]{R\!\left(#1\right)}
+\newcommand{\V}[1]{V\!\left(#1\right)}
+\newcommand{\function}[2]{#1\!\left(#2\right)}
+\newcommand{\functions}[2]{\left(#1\right)\!\left(#2\right)}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\textfil}[1]{\colorbox{light-gray}{\large\color{Red} #1}}
+
+
+\renewcommand{\title}{Real Analysis II:\quad Homework 01}
+\renewcommand{\author}{104021615 黃翊軒}
+\renewcommand{\maketitle}{\begin{center}\textbf{\Large\title}\\[6pt] {\author}\\[6pt] {\color{Gray}\footnotesize March 01, 2016}\end{center}}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\newcommand{\Exercise}[2]{\textbf{Exercise #1.} \textit{#2}}
+\newtheorem{exercise}{Exercise}
+
+%\parskip=11pt
+
+\begin{document}
+
+  \maketitle
+
+  \setcounter{exercise}{1}
+  
+  \begin{exercise}
+  	P96.
+  \end{exercise}
+  
+  \begin{proof}
+	\begin{enumerate}
+		\item Let $h_1(x,y) = f(x)$. As a function on $\mathbb{R}^{2n}$, $h_1$ is measurable since $f(x):\mathbb{R}^n \rightarrow \mathbb{R} \cup \{\pm \infty \}$.
+		And for any $a \in \mathbb{R}$, we have
+		\begin{align*}
+		\{(x,y)\in \mathbb{R}^{2n}:h_1(x,y)>a \} = \{x\in \mathbb{R}^n:f(x)>a \}\times \mathbb{R}^n
+		\end{align*}
+		By viewing $\mathbb{R}^{n} = \underbrace{\mathbb{R}\times \cdots \times \mathbb{R}}_n$ and using Lemma 5.2, the RHS is a measurable set in $\mathbb{R}^{2n}$.
+		Similarly, the function $h_2(x,y) = g(y)$ is also a measurable function on $\mathbb{R}^{2n}$. Then by Theorem 4.10, we know that
+		\begin{align*}
+		h_1(x,y)\cdot h_2(x,y) = f(x)g(y) : \mathbb{R}^{2n} \to \mathbb{R}\cup\{\pm \infty\}
+		\end{align*}
+		is also a measurable function on $\mathbb{R}^{2n}$.
+		
+		\item Given $E_1, E_2$, both are measurable in $\mathbb{R}^n$. Since $\chi_{E_1}(x)\cdot \chi_{E_2}(y) = \chi_{E_1\times E_2}(x,y)$, by above we know that $\chi_{E_1\times E_2}(x,y)$ is a measurable function on $\mathbb{R}^{2n}$. Hence the set $E_1\times E_2$ is measurable in $\mathbb{R}^{2n}$. By Tonelli's theorem, 
+		\begin{align*}
+		|E_1\times E_2| &= \int_{E_1 \times E_2}\chi_{E_1\times E_2}(x,y)dxdy \\
+		&= \int_{\mathbb{R}^{n}\times \mathbb{R}^{n}}\chi_{E_1\times E_2}(x,y)dxdy \\
+		&= \int_{\mathbb{R}^n}\left[ \int_{\mathbb{R}^n}\chi_{E_1\times E_2}(x,y)dx\right]dy \\
+		&= \int_{\mathbb{R}^n}\left[\int_{\mathbb{R}^n}\chi_{E_1}(x)\cdot \chi_{E_2}(y)dx\right]dy \\
+		&=	\int_{\mathbb{R}^n}\chi_{E_1}(x)dx  \int_{\mathbb{R}^n}\chi_{E_2}(y)dy \\
+		&= \int_{E_1}\chi_{E_1}(x)dx  \int_{E_2}\chi_{E_2}(y)dy \\
+		&= |E_1||E_2|
+		\end{align*}
+	\end{enumerate}
+  \end{proof}
+
+
+\end{document} 
